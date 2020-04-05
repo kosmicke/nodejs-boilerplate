@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require("fs");
 const mongoConfig = require('./src/config/mongodb.config');
+const express_async_errors = require('express-async-errors');
 
 // Setting port and env
 process.env.PORT = process.env.PORT || 3000;
@@ -23,6 +24,16 @@ const routePath = "./src/routes";
 fs.readdirSync(routePath).forEach(function (file) {
   var route = `${routePath}/${file}`;
   require(route)(app);
+});
+
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error(err);
+  if(err.code){
+    res.status(err.code).send({ message : err.message })
+  }else{
+    res.status(500).send({ message : 'An error occured.' })
+  }
 });
 
 // Connecting database

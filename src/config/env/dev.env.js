@@ -5,5 +5,6 @@ module.exports = {
             useNewUrlParser: true,
             useUnifiedTopology: true 
         }
-    }
+    },
+    encryptionKey : 'K<@@vchZ10(P&{:'
 };
