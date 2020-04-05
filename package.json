@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/kosmicke/nodejs-boilerplate/issues"
   },
-  "homepage": "https://github.com/kosmicke/nodejs-boilerplate#readme"
+  "homepage": "https://github.com/kosmicke/nodejs-boilerplate#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
