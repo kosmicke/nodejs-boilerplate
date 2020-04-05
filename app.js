@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require("fs");
 const mongoConfig = require('./src/config/mongodb.config');
-const express_async_errors = require('express-async-errors');
+require('express-async-errors');
 
 // Setting port and env
 process.env.PORT = process.env.PORT || 3000;
