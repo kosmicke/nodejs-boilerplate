@@ -2,12 +2,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require("fs");
-const mongoConfig = require('./src/config/mongodb.config');
 require('express-async-errors');
 
 // Setting port and env
 process.env.PORT = process.env.PORT || 3000;
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+
+// Load local env config if env is not prod
+if(process.env.NODE_ENV != 'prod'){
+  const dotenv = require('dotenv');
+  dotenv.config();
+}
 
 // Creating express app
 const app = express();
@@ -37,6 +42,7 @@ app.use((err, req, res, next) => {
 });
 
 // Connecting database
+const mongoConfig = require('./src/config/mongodb.config');
 mongoConfig.startConnection();
 
 // Starting app
