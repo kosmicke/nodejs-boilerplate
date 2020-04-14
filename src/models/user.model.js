@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var schema = new Schema(
     {
-        login: {
+        email: {
             type: String
         },
         password: {
@@ -13,7 +13,7 @@ var schema = new Schema(
             type: String
         },
         status : {
-            type: Boolean
+            type: Number
         }
     },
     {
