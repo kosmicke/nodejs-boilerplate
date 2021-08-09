@@ -2,10 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require("fs");
+
 require('express-async-errors');
 
 // Setting port and env
 process.env.PORT = process.env.PORT || 3000;
+
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
 // Load local env config if env is not prod
